@@ -1,0 +1,12 @@
+{
+  "farm":{
+    "name": "Farm",
+    "requires_tech":["agriculture"],
+    "agriculture":1
+
+  },
+  "barracks": {
+    "name": "Barracks",
+    "description": "Produces millitary infantry.",
+  }
+}

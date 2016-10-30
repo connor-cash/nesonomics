@@ -1,0 +1,15 @@
+{
+  "forge":{
+    "name": "Forge",
+    "requires": ["Workshop"],
+    "production":5
+
+  },
+  "factory": {
+    "name": "Factory",
+    "requires": ["forge"],
+    "requires_tech":["mass_production","another_tech"]
+    "production":30
+    "agriculture":-10
+  }
+}

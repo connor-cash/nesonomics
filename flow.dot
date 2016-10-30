@@ -1,0 +1,22 @@
+ digraph ethane {
+
+ subgraph clusterHex
+{
+"hex.Agri"
+"hex.pop"
+"hex.Manuf"
+"computePop"
+"demandPerPop"
+"resourceDemand[]"
+"shortage/surplus[]"
+"resourcesAvailable"
+}
+nation[color=blue]
+
+     {"hex.pop","demandPerPop"}->"resourceDemand[]"->"shortage/surplus[]"->"computePop"->"hex.pop"
+"resourcesAvailable"->"shortage/surplus[]"
+     "hex.Agri" ->"computePop"
+    "hex.Manuf"->"∑Manuf"->nation
+     "hex.Agri"->"∑Agri"->nation
+"hex.pop"->"∑pop"->nation
+ }
