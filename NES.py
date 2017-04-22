@@ -5,7 +5,8 @@ import Hex
 from World import World
 import Nation
 import os
-import  json
+import json
+
 
 def print_menu():  ## Your menu design here
     print 30 * "-", "MENU", 30 * "-"
@@ -18,75 +19,88 @@ def print_menu():  ## Your menu design here
     print "8. Exit"
     print 67 * "-"
 
-#World loading
+
+# World loading
 
 loop = True
-path="dsjfhasjklfghakslfg"
-run=0
-world =  World(12,12)
+path = "dsjfhasjklfghakslfg"
+run = 0
+world = World(12, 12)
 
-def addPlayer(name,nationname):
+
+def addPlayer(name, nationname):
     if world.hasNation(nationname):
         return False
+
 
 def listPlayers():
     print world.getPlayers()
 
+
 def exortPlayer():
     name = raw_input("Player Name")
     exportpath = raw_input("Save where?")
-    f = file(exportpath,'w')
-    json.dump(players[name],f)
+    f = file(exportpath, 'w')
+    json.dump(players[name], f)
+
 
 def importPlayer():
     exportpath = raw_input("Load path?")
     f = file(exportpath, 'r')
     player = json.load(r)
-    while(~addPlayer( player.getName(),player)):
+    while (~addPlayer(player.getName(), player)):
         print "Player name in use please supply another one"
 
 
-
 def upgradeWorld(path):
-    #upgrade world to current format as necessay
+    # upgrade world to current format as necessay
     pass
+
 
 def saveWorld(path):
     f = file(path, 'w')
     pickle.dump(world, f)
     f.close();
 
+
 def initWorld(path):
-    #create info file with version ifo etc
-    #create world file with version
-    saveWorld(path+'/world.pickle')
+    # create info file with version ifo etc
+    # create world file with version
+    saveWorld(path + '/world.pickle')
+
 
 def loadWorld(path):
-    world = pickle.load(file(path +"/world.pickle", "r"))
+    world = pickle.load(file(path + "/world.pickle", "r"))
+
 
 def dumpWorld():
     for player in players:
         name = player.getName()
-        #dump nation
-        #dump nation networks
-        #dump network hexes
+        # dump nation
+        # dump nation networks
+        # dump network hexes
 
-print "Welcome please provide a file by name in the \"runs\" directory \n- \"Runs\" must have an integer name, do not rename them.\n" \
-      "- They are named in sequential order, to make a backup duplicate the runs directory"
+
+def preflight():
+    # check if anything is amiss and report it.
+    pass
+
+
+# print "Welcome please provide a file by name in the \"runs\" directory \n- \"Runs\" must have an integer name, do not rename them.\n- They are named in sequential order, to make a backup duplicate the runs directory"
 
 
 while True:
     print os.listdir('runs')
-    if len(os.listdir('runs')) <2:
+    if len(os.listdir('runs')) < 2:
         print "No runs, a new run will be created with name 0"
         os.mkdir('runs/0')
         initWorld('runs/0')
         break
-    path = raw_input("File:")
-    path = 'runs/'+path
+    path = raw_input("Load which run?:")
+    path = 'runs/' + path
     if os.path.isdir(path):
-        data= loadWorld(path)
-        run = int( os.path.basename(path))
+        data = loadWorld(path)
+        run = int(os.path.basename(path))
         break
     else:
         print "Bad directory, try again"
@@ -99,7 +113,7 @@ while loop:  ## While loop which will keep going until loop = False
         print "1:List players"
         listPlayers()
     elif choice == 2:
-        id= raw_input("Nation name or id")
+        id = raw_input("Nation name or id")
         print world.getNation(id)
         ## You can add your code or functions here
     elif choice == 3:
@@ -112,7 +126,8 @@ while loop:  ## While loop which will keep going until loop = False
             id = raw_input("Nation name or id:")
             if world.hasNation(id):
                 targetNation = world.getNation(id)
-                yes = raw_input("Nation:"+targetNation.getName()+" will be deleted, THIS CANNOT BE UNDONE. CONTINUE (y/n)?")
+                yes = raw_input(
+                    "Nation:" + targetNation.getName() + " will be deleted, THIS CANNOT BE UNDONE. CONTINUE (y/n)?")
                 if choice == 'y':
                     world.removeNation(name);
         else:

@@ -7,9 +7,11 @@
   },
   "factory": {
     "name": "Factory",
+    "description": "Greatly improves production on this hex, but agriculture suffers due to acid rain.",
     "requires": ["forge"],
-    "requires_tech":["mass_production","another_tech"]
-    "production":30
+    "requires_tech":["mass_production","another_tech"],
+    "production":30,
+    "production_multiplier":1.5,
     "agriculture":-10
   }
 }

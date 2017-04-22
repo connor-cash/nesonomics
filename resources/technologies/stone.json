@@ -1,0 +1,12 @@
+{
+  "agriculture":{
+    "name": "Agriculture",
+    "description":"Enables the production of farms, leads to pottery"
+  },
+  "pottery":{
+    "name": "Pottery",
+    "description":"Enables production of Granary, leads to masonary",
+    "requires":["agriculture"]
+  }
+
+}
