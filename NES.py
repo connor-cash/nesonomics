@@ -2,8 +2,7 @@ import pickle
 import zipfile
 import Improvements.Improvement as Improvement
 import Hex
-from World import World
-import Nation
+from NESCore import *
 import os
 import json
 
@@ -25,7 +24,7 @@ def print_menu():  ## Your menu design here
 loop = True
 path = "dsjfhasjklfghakslfg"
 run = 0
-world = World(12, 12)
+world = World()
 
 
 def addPlayer(name, nationname):
@@ -60,7 +59,7 @@ def upgradeWorld(path):
 def saveWorld(path):
     f = file(path, 'w')
     pickle.dump(world, f)
-    f.close();
+    f.close()
 
 
 def initWorld(path):
@@ -84,6 +83,11 @@ def dumpWorld():
 def preflight():
     # check if anything is amiss and report it.
     pass
+
+
+def run_world():
+    preflight()
+    world.run()
 
 
 # print "Welcome please provide a file by name in the \"runs\" directory \n- \"Runs\" must have an integer name, do not rename them.\n- They are named in sequential order, to make a backup duplicate the runs directory"
@@ -138,6 +142,7 @@ while loop:  ## While loop which will keep going until loop = False
         ## You can add your code or functions here
     elif choice == 5:
         print "5: Step world"
+        run_world()
         ## You can add your code or functions here
         loop = False  # This will make the while loop to end as not value of loop is set to False
     elif choice == 6:

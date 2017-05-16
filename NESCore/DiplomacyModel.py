@@ -5,5 +5,5 @@ class DiplomacyModel:
     def owner_of_hex_with_id(self, i):
         pass
 
-    def is_neutral(self, i):
+    def is_hex_neutral(self, i):
         return self.owner_of_hex_with_id(i) is None
