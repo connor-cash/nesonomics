@@ -1,0 +1,29 @@
+{
+  "mass_production": {
+    "name": "Mass Production",
+    "requires": [
+      "steam_engine"
+    ]
+  },
+
+  "steam_engine": {
+    "name": "Steam Engine"
+  },
+
+  "chemical_fertilizer": {
+    "name": "Chemical Fertilizer",
+    "requires": [
+      "chemistry",
+      "agriculture"
+    ]
+  },
+
+  "chemistry": {
+    "name": "Chemistry",
+    "requires":["agriculture"]
+  }
+
+
+
+
+}
