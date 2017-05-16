@@ -1,8 +1,8 @@
 import pickle
 import zipfile
 import Improvements.Improvement as Improvement
-import Hex
-from NESCore import *
+#import Hex
+#from NESCore import *
 import os
 import json
 
@@ -24,7 +24,7 @@ def print_menu():  ## Your menu design here
 loop = True
 path = "dsjfhasjklfghakslfg"
 run = 0
-world = World()
+#world = World()
 
 
 def addPlayer(name, nationname):
