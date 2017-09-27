@@ -8,3 +8,5 @@ class HexOrderModel(NESModel):
 
     def random_order(self):
         return random.shuffle(range(0, self.world.hexCount))
+
+    #TODO load hex list file
